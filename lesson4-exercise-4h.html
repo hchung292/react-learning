@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lesson 4 Exercise</title>
+    <style>
+        body {
+            margin:0;
+        }
+
+        button {
+            background-color: rgb(25, 135, 84);
+            border: none;
+            color: white;
+            padding: 8px 10px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+            gap: 10px;
+            background-color: rgb(222,222,222);
+        }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev@8.6.4/external-library.js"></script>
+    <script src="react-basics.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+        function APP() {
+
+            const [clickTime, setClickTime] = React.useState(0);
+
+            function increaseTime() {
+                setClickTime(clickTime + 1);
+            }
+
+            function resetTime() {
+                setClickTime(0);
+            }
+
+
+            const autoClickRef = React.useRef(null);
+
+            function autoClick() {
+                setInterval(()=>{
+                    const autoClickElem = autoClickRef.current;
+
+                    if(autoClickElem) {
+                        autoClickElem.click();
+                    }
+                },1000);      
+            }
+
+            return(
+                <div
+                    className="btn-container"
+                >
+                    <button
+                        onClick={increaseTime}
+                        ref={autoClickRef}
+                    >
+                        Clicked {clickTime} {clickTime === 1 ? 'time' : 'times' }
+                    </button>
+
+                    <button
+                        onClick={resetTime}
+                    >
+                        Reset
+                    </button>
+
+                    <button
+                        onClick={autoClick}
+                    >
+                        Auto Click
+                    </button>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.querySelector('.js-container'));
+        root.render(<APP />);
+
+    </script>
+  </body>
+</html>

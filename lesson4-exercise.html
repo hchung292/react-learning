@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lesson 4 Exercise</title>
+    <style>
+        .app-button, .button-on, .button-off{
+            background-color: rgb(25, 145, 84);
+            border-radius: 10px;
+            padding: 10px 13px;
+            border: none;
+            color: #ffffff;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .button-off {
+            background-color: rgb(220, 53, 69);
+        }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    
+    <script src="https://unpkg.com/supersimpledev@8.6.4/external-library.js"></script>
+    <script src="react-basics.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+        function App() {
+            const [appButton, setAppButton] = React.useState(true);
+
+            function buttonClick() {
+                if(appButton) {
+                    setAppButton(false);
+                } else {
+                    setAppButton(true);
+                }
+            }
+
+            return (
+                <>
+                    <button
+                        className={appButton ? 'button-on' : 'button-off'}
+                        onClick={buttonClick}>
+                        {appButton ? 'ON' : 'OFF'}
+                    </button>
+                </>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.querySelector('.js-container'));
+        root.render(<App />)
+
+        
+    </script>
+  </body>
+</html>
