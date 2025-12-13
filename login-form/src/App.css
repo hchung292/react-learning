@@ -1,0 +1,28 @@
+        .form-input-container {
+            margin-bottom: 10px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .form-button {
+            background-color: rgb(0, 123, 255);
+            border: 0;
+            color: #ffffff;
+            font-size: 12px;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .form-input {
+            padding:10px;
+            border-width: 1px;
+            border-radius: 5px;
+            width: 200px;
+        }
+
+        .show-hide-pw-button {
+            margin-left: 10px;
+        }
