@@ -1,8 +1,12 @@
 import RobotProfileImage from '../assets/robot.png';
-import UserProfileImage from '../assets/user.png';
+import UserProfileImage from '../assets/profile-1.jpg';
+import dayjs from 'dayjs'
+
 import './ChatMessage.css'
 
-export function ChatMessage({message, sender}) {
+export function ChatMessage({message, sender, time}) {
+  const timeTwelveFormat = dayjs(time).format('h:mma');
+
   return (
     <div className={ 
       sender === 'user' 
@@ -15,6 +19,9 @@ export function ChatMessage({message, sender}) {
 
       <div className="chat-message-text">
         {message}
+        <span className="message-time">
+          { timeTwelveFormat }
+        </span>
       </div>
 
       {sender === 'user' && (

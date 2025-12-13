@@ -1,4 +1,4 @@
-.send-button {
+.send-button, .clear-button {
   background-color: rgb(25, 135, 84);
   color: white;
   border: none;
@@ -7,6 +7,11 @@
   border-radius: 10px;
   cursor: pointer;
   margin-left: 10px;
+}
+
+.clear-button {
+  background-color: rgb(228, 228, 228);
+  color: #000000;
 }
 
 .chat-input {
