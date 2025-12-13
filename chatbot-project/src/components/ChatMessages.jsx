@@ -1,5 +1,6 @@
 import { useRef, useEffect } from 'react'
 import { ChatMessage } from './ChatMessage'
+import './ChatMessages.css';
 
 // Custom Hook
 function useAutoScroll(dependencies) {
